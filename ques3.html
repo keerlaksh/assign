@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic HTML Party</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #4a6fa5;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #4a6fa5;
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #4a6fa5;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        article {
+            margin-bottom: 1.5rem;
+        }
+
+        article h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Aside Styles */
+        aside {
+            background-color: #e9f0f8;
+            border-left: 4px solid #4a6fa5;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the Semantic HTML Party!</h1>
+        <p>Where every element knows its role and nobody hides in generic divs</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#guests">Party Guests</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#location">Location</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About the Party</h2>
+            <article>
+                <h3>Why Semantic HTML?</h3>
+                <p>Semantic HTML gives meaning to your content, making it more accessible to both browsers and
+                    developers. It's like giving your elements proper name tags at a party!</p>
+            </article>
+            <article>
+                <h3>Party Theme</h3>
+                <p>This year's theme is "Meaningful Markup" - come dressed as your favorite semantic element!</p>
+            </article>
+        </section>
+
+        <section id="guests">
+            <h2>Featured Guests</h2>
+            <article>
+                <h3>&lt;header&gt;</h3>
+                <p>The distinguished guest who introduces everything properly.</p>
+            </article>
+            <article>
+                <h3>&lt;main&gt;</h3>
+                <p>The life of the party who keeps all the important content together.</p>
+            </article>
+            <article>
+                <h3>&lt;footer&gt;</h3>
+                <p>Always at the bottom, but never forgotten - the perfect closer.</p>
+            </article>
+        </section>
+
+        <aside>
+            <h3>Party Tip</h3>
+            <p>Remember to use semantic elements appropriately - don't be that &lt;div&gt; who shows up without knowing
+                their purpose!</p>
+        </aside>
+
+        <section id="schedule">
+            <h2>Party Schedule</h2>
+            <article>
+                <h3>7:00 PM</h3>
+                <p>Arrival of semantic elements (no anonymous divs allowed)</p>
+            </article>
+            <article>
+                <h3>8:00 PM</h3>
+                <p>Keynote speech: "The Importance of Meaningful Markup" by &lt;article&gt;</p>
+            </article>
+            <article>
+                <h3>9:00 PM</h3>
+                <p>Dance party with CSS animations</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Semantic HTML Party Committee</p>
+        <p>Accessibility matters - this party is screen-reader friendly!</p>
+    </footer>
+</body>
+
+</html>

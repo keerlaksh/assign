@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REM vs PX Showdown</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .showdown-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            margin: 40px auto;
+            max-width: 1200px;
+        }
+
+        .section {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* PX Section */
+        .px-section .card {
+            width: 250px;
+            padding: 15px;
+            margin: 10px;
+            background: #e3f2fd;
+            border-radius: 6px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .px-section .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .px-section .card p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .px-section .card button {
+            padding: 8px 16px;
+            font-size: 14px;
+            background: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* REM Section */
+        :root {
+            font-size: 16px;
+            /* Base font size */
+        }
+
+        .rem-section .card {
+            width: 15.625rem;
+            /* 250px / 16 */
+            padding: 0.9375rem;
+            /* 15px / 16 */
+            margin: 0.625rem;
+            /* 10px / 16 */
+            background: #e8f5e9;
+            border-radius: 0.375rem;
+            /* 6px / 16 */
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .rem-section .card h3 {
+            font-size: 1.125rem;
+            /* 18px / 16 */
+            margin-bottom: 0.625rem;
+            /* 10px / 16 */
+        }
+
+        .rem-section .card p {
+            font-size: 0.875rem;
+            /* 14px / 16 */
+            margin-bottom: 0.9375rem;
+            /* 15px / 16 */
+        }
+
+        .rem-section .card button {
+            padding: 0.5rem 1rem;
+            /* 8px 16px / 16 */
+            font-size: 0.875rem;
+            /* 14px / 16 */
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            /* 4px / 16 */
+            cursor: pointer;
+        }
+
+        /* Responsive behavior */
+        @media (max-width: 768px) {
+            :root {
+                font-size: 14px;
+                /* Base font size decreases on smaller screens */
+            }
+
+            .px-section .card {
+                width: 200px;
+                padding: 10px;
+            }
+
+            .px-section .card h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>REM vs PX Showdown</h1>
+
+    <div class="showdown-container">
+        <section class="section px-section">
+            <h2>Pixel Units (PX)</h2>
+            <div class="card">
+                <h3>Fixed Size Card</h3>
+                <p>This card uses pixel units for all measurements. It looks good at default size but requires manual
+                    adjustments for different screens.</p>
+                <button>Click Me</button>
+            </div>
+            <div class="card">
+                <h3>Static Dimensions</h3>
+                <p>Everything is defined in absolute pixels. Font sizes, padding, margins - all fixed values.</p>
+                <button>Click Me</button>
+            </div>
+        </section>
+
+        <section class="section rem-section">
+            <h2>Root EM Units (REM)</h2>
+            <div class="card">
+                <h3>Scalable Card</h3>
+                <p>This card uses rem units for all measurements. It scales beautifully when the root font size changes.
+                </p>
+                <button>Click Me</button>
+            </div>
+            <div class="card">
+                <h3>Relative Dimensions</h3>
+                <p>All sizes are relative to the root font size. Change one value and everything scales proportionally.
+                </p>
+                <button>Click Me</button>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

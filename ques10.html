@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Photo Grid</title>
+    <style>
+        /* Modern reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f8f8f8;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: white;
+            padding: 1.5rem 1rem 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .caption {
+            opacity: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Minimalist Moments</h1>
+
+    <div class="gallery">
+        <!-- Placeholder images from picsum.photos with different themes -->
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/10/800/800" alt="Nature" class="gallery-img">
+            <div class="caption">Forest Pathway</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/11/800/800" alt="Architecture" class="gallery-img">
+            <div class="caption">Urban Geometry</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/12/800/800" alt="Ocean" class="gallery-img">
+            <div class="caption">Coastal View</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/13/800/800" alt="Mountains" class="gallery-img">
+            <div class="caption">Alpine Peaks</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/14/800/800" alt="Desert" class="gallery-img">
+            <div class="caption">Dunes at Dusk</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/15/800/800" alt="Waterfall" class="gallery-img">
+            <div class="caption">Cascade</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/16/800/800" alt="Cityscape" class="gallery-img">
+            <div class="caption">Metropolis</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/17/800/800" alt="Fields" class="gallery-img">
+            <div class="caption">Golden Harvest</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/18/800/800" alt="Lake" class="gallery-img">
+            <div class="caption">Still Waters</div>
+        </div>
+    </div>
+</body>
+
+</html>

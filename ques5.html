@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Top 5 Netflix Picks</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #141414;
+            color: #e5e5e5;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #e50914, #b00710);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #e50914;
+            border-bottom: 2px solid #e50914;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .list-section {
+            flex: 1;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        ol,
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            line-height: 1.5;
+            padding-left: 10px;
+        }
+
+        ol li {
+            font-weight: bold;
+            color: #e50914;
+        }
+
+        ul li {
+            list-style-type: none;
+            position: relative;
+        }
+
+        ul li:before {
+            content: "•";
+            color: #e50914;
+            font-size: 1.5rem;
+            position: absolute;
+            left: -20px;
+            top: -3px;
+        }
+
+        .show-title {
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .show-desc {
+            color: #a3a3a3;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>My Top 5 Netflix Picks</h1>
+        <p>Binge-worthy shows and games that keep me hooked</p>
+    </header>
+
+    <div class="container">
+        <section class="list-section">
+            <h2>Top 5 Netflix Shows</h2>
+            <ol>
+                <li>
+                    <span class="show-title">Stranger Things</span>
+                    <p class="show-desc">Nostalgic 80s sci-fi with amazing characters and supernatural mysteries</p>
+                </li>
+                <li>
+                    <span class="show-title">The Crown</span>
+                    <p class="show-desc">Royal drama with outstanding performances and lavish production</p>
+                </li>
+                <li>
+                    <span class="show-title">Dark</span>
+                    <p class="show-desc">Mind-bending German time travel masterpiece with incredible depth</p>
+                </li>
+                <li>
+                    <span class="show-title">Arcane</span>
+                    <p class="show-desc">Stunning animated series with deep storytelling and visual artistry</p>
+                </li>
+                <li>
+                    <span class="show-title">The Queen's Gambit</span>
+                    <p class="show-desc">Compelling chess prodigy story with 60s style and brilliant acting</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="list-section">
+            <h2>Top 5 Netflix Games</h2>
+            <ul>
+                <li>
+                    <span class="show-title">Into the Breach</span>
+                    <p class="show-desc">Brilliant turn-based strategy game with infinite replayability</p>
+                </li>
+                <li>
+                    <span class="show-title">Spiritfarer</span>
+                    <p class="show-desc">Emotional management game about saying goodbye to loved ones</p>
+                </li>
+                <li>
+                    <span class="show-title">Dead Cells</span>
+                    <p class="show-desc">Addictive roguelike action-platformer with tight controls</p>
+                </li>
+                <li>
+                    <span class="show-title">Oxenfree</span>
+                    <p class="show-desc">Supernatural teen thriller with great dialogue and atmosphere</p>
+                </li>
+                <li>
+                    <span class="show-title">TMNT: Shredder's Revenge</span>
+                    <p class="show-desc">Perfect modern take on classic arcade beat-em-ups</p>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        Last updated: June 2023 • What should I watch/play next?
+    </footer>
+</body>
+
+</html>

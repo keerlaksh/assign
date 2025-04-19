@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Tetris: Class Schedule</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .schedule-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            max-width: 800px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        th,
+        td {
+            border: 2px solid #3498db;
+            padding: 12px;
+            text-align: center;
+        }
+
+        thead {
+            background-color: #3498db;
+            color: white;
+        }
+
+        thead th {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #ecf0f1;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tfoot {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: bold;
+        }
+
+        .merged-cell {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+
+        .lunch {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .lab {
+            background-color: #9b59b6;
+            color: white;
+        }
+
+        .free {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        caption {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="schedule-container">
+        <h1>Class Schedule Tetris</h1>
+        <table>
+            <caption>Spring 2023 Weekly Schedule</caption>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Wednesday</th>
+                    <th>Friday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>8:00-9:30</td>
+                    <td rowspan="2" class="merged-cell">Computer Science 101<br>(Lecture)</td>
+                    <td>Mathematics 205</td>
+                    <td rowspan="2" class="merged-cell">Computer Science 101<br>(Lab)</td>
+                </tr>
+                <tr>
+                    <td>9:30-11:00</td>
+                    <td class="lab">Physics Lab</td>
+                </tr>
+                <tr>
+                    <td>11:00-12:30</td>
+                    <td>Literature 150</td>
+                    <td colspan="2" class="lunch">Lunch Break</td>
+                </tr>
+                <tr>
+                    <td>12:30-2:00</td>
+                    <td>History 210</td>
+                    <td>Literature 150</td>
+                    <td class="free">Free Period</td>
+                </tr>
+                <tr>
+                    <td>2:00-3:30</td>
+                    <td colspan="3" class="merged-cell">Group Project Work</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Total: 5 Courses | 15 Credit Hours</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+
+</html>

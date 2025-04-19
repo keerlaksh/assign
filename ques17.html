@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Gallery Flexbox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #121212, #333);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #ff00ff,
+                0 0 20px #00ffff;
+            font-size: 3rem;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .meme-card {
+            flex: 1 1 300px;
+            max-width: 350px;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .meme-card:hover {
+            transform: translateY(-10px) scale(1.05) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(255, 0, 255, 0.4),
+                0 0 40px rgba(0, 255, 255, 0.2);
+            z-index: 10;
+        }
+
+        .meme-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            filter: brightness(0.9) saturate(0.8);
+        }
+
+        .meme-card:hover .meme-img {
+            transform: scale(1.1);
+            filter: brightness(1.1) saturate(1.2) contrast(1.1);
+        }
+
+        .meme-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-out;
+            backdrop-filter: blur(5px);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .meme-card:hover .meme-caption {
+            transform: translateY(0);
+        }
+
+        /* Glow effects for extra pop */
+        .meme-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 15px;
+            box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0);
+            transition: box-shadow 0.4s ease;
+        }
+
+        .meme-card:hover::after {
+            box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.3);
+            animation: pulse-glow 1.5s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 15px 3px rgba(255, 0, 255, 0.3);
+            }
+
+            100% {
+                box-shadow: 0 0 25px 8px rgba(0, 255, 255, 0.4);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .meme-card {
+                flex: 1 1 250px;
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                gap: 1rem;
+            }
+
+            .meme-card {
+                flex: 1 1 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔥 Viral Meme Gallery 🔥</h1>
+
+    <div class="gallery">
+        <!-- Meme 1 -->
+        <div class="meme-card">
+            <img src="https://i.imgflip.com/4/1bij.jpg" alt="One Does Not Simply" class="meme-img">
+            <div class="meme-caption">One does not simply create a meme gallery</div>
+        </div>
+
+        <!-- Meme 2 -->
+        <div class="meme-card">
+            <img src="https://i.imgflip.com/4/1bgw.jpg" alt="Distracted Boyfriend" class="meme-img">
+            <div class="meme-caption">When you see another meme gallery</div>
+        </div>
+
+        <!-- Meme 3 -->
+        <div class="meme-card">
+            <img src="https://i.imgflip.com/4/1ihzfe.jpg" alt="Drake Hotline Bling" class="meme-img">
+            <div class="meme-caption">Basic hover effects vs This gallery</div>
+        </div>
+
+        <!-- Meme 4 -->
+        <div class="meme-card">
+            <img src="https://i.imgflip.com/4/1g8my.jpg" alt="Y U No" class="meme-img">
+            <div class="meme-caption">Y U NO hover me??</div>
+        </div>
+
+        <!-- Meme 5 -->
+        <div class="meme-card">
+            <img src="https://i.imgflip.com/4/1ihsmw.jpg" alt="Ancient Aliens Guy" class="meme-img">
+            <div class="meme-caption">What if... Flexbox was created by aliens?</div>
+        </div>
+
+        <!-- Meme 6 -->
+        <div class="meme-card">
+            <img src="https://i.imgflip.com/4/1bip.jpg" alt="Bad Luck Brian" class="meme-img">
+            <div class="meme-caption">Uses Float for layout... In 2023</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Responsive Layout</title>
+    <style>
+        /* Royal CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                "royal-header"
+                "royal-main"
+                "royal-footer";
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        /* 👑 Header - The Crown Jewel 👑 */
+        header {
+            grid-area: royal-header;
+            background: linear-gradient(135deg, #5e2ced, #a155ed);
+            color: white;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "👑";
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            right: -2rem;
+            top: -2rem;
+            transform: rotate(20deg);
+        }
+
+        .royal-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .royal-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .royal-tagline {
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 🏰 Navigation - The Royal Court 🏰 */
+        .royal-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .royal-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .royal-nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* 🪟 Main Content Area - The Throne Room 🪟 */
+        .royal-container {
+            grid-area: royal-main;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            grid-template-areas: "royal-sidebar royal-content";
+        }
+
+        /* 🗂️ Sidebar - The Royal Archives 🗂️ */
+        aside {
+            grid-area: royal-sidebar;
+            background: white;
+            padding: 2rem;
+            border-right: 1px solid #eee;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .royal-sidebar-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #5e2ced;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .royal-menu {
+            list-style: none;
+        }
+
+        .royal-menu li {
+            margin-bottom: 0.8rem;
+        }
+
+        .royal-menu a {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #555;
+            text-decoration: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .royal-menu a:hover {
+            background: #f0e6ff;
+            color: #5e2ced;
+            transform: translateX(5px);
+        }
+
+        .royal-menu i {
+            font-size: 1.2rem;
+            width: 1.5rem;
+            text-align: center;
+        }
+
+        /* 📜 Main Content - The Royal Decree 📜 */
+        main {
+            grid-area: royal-content;
+            padding: 2.5rem;
+            background: white;
+        }
+
+        .royal-content-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .royal-content-text {
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .royal-card {
+            background: linear-gradient(to bottom right, #f9f5ff, white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .royal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .royal-card-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #5e2ced;
+        }
+
+        /* � Footer - The Royal Seal 🏷️ */
+        footer {
+            grid-area: royal-footer;
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .royal-footer-text {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .royal-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .royal-social a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .royal-social a:hover {
+            color: #a155ed;
+            transform: scale(1.2);
+        }
+
+        /* 🧙‍♂️ Media Queries - The Royal Transformations 🧙‍♂️ */
+        @media (max-width: 1024px) {
+            .royal-container {
+                grid-template-columns: 250px 1fr;
+            }
+
+            main {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .royal-container {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "royal-sidebar"
+                    "royal-content";
+            }
+
+            aside {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding: 1.5rem;
+            }
+
+            .royal-menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .royal-menu li {
+                margin-bottom: 0;
+                flex: 1;
+                min-width: 120px;
+            }
+
+            .royal-menu a {
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+                padding: 1rem 0.5rem;
+            }
+
+            .royal-menu a:hover {
+                transform: translateY(5px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 1.2rem;
+            }
+
+            .royal-brand {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .royal-nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .royal-nav a {
+                text-align: center;
+            }
+
+            main {
+                padding: 1.5rem;
+            }
+
+            .royal-content-title {
+                font-size: 1.6rem;
+            }
+
+            .royal-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            /* When the screen is smaller than my attention span */
+            .royal-menu {
+                flex-direction: column;
+            }
+
+            .royal-menu li {
+                min-width: 100%;
+            }
+
+            .royal-logo {
+                font-size: 2rem;
+            }
+
+            .royal-card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="royal-brand">
+            <div class="royal-logo">RoyalLayout</div>
+            <div class="royal-tagline">Responsive design fit for royalty</div>
+        </div>
+        <nav class="royal-nav">
+            <a href="#"><i class="fas fa-home"></i> Palace</a>
+            <a href="#"><i class="fas fa-gem"></i> Jewels</a>
+            <a href="#"><i class="fas fa-scroll"></i> Decrees</a>
+            <a href="#"><i class="fas fa-crown"></i> Royalty</a>
+        </nav>
+    </header>
+
+    <div class="royal-container">
+        <aside>
+            <h3 class="royal-sidebar-title">Royal Commands</h3>
+            <ul class="royal-menu">
+                <li>
+                    <a href="#">
+                        <i class="fas fa-throne"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-users"></i>
+                        <span>Subjects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-coins"></i>
+                        <span>Treasury</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-chess"></i>
+                        <span>Strategies</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-scroll"></i>
+                        <span>Archives</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main>
+            <h1 class="royal-content-title">Your Majesty's Responsive Kingdom</h1>
+            <p class="royal-content-text">
+                Behold! A layout that transforms more majestically than a caterpillar to a butterfly.
+                Resize your royal browser window to witness the glorious adaptation across devices,
+                more reliable than the royal guards at changing of shifts.
+            </p>
+
+            <div class="royal-card">
+                <h2 class="royal-card-title">CSS Grid Reigns Supreme</h2>
+                <p>The power of CSS Grid organizes this kingdom more efficiently than royal scribes cataloging tax
+                    records. Witness the orderly columns that rearrange themselves with royal decree.</p>
+            </div>
+
+            <div class="royal-card">
+                <h2 class="royal-card-title">Flexbox Knights</h2>
+                <p>Our noble Flexbox knights ensure every element stays perfectly aligned, defending against layout
+                    chaos better than the royal army defends the castle walls.</p>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p class="royal-footer-text">© 2023 Royal Responsive Designs</p>
+        <p class="royal-footer-text">All peasants and devices welcome</p>
+        <div class="royal-social">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+</body>
+
+</html>

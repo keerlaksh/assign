@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H.Keerthi Lakshmi - Card Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0c0c14;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Background animation */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(78, 130, 255, 0.3);
+            background: radial-gradient(circle at 30% 30%, rgba(78, 130, 255, 0.8), rgba(138, 43, 226, 0.4));
+            opacity: 0.3;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0.5);
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            padding: 20px;
+            background-color: rgba(12, 12, 20, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            border-bottom: 1px solid rgba(78, 130, 255, 0.2);
+        }
+
+        .title {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #4e82ff, #8a2be2, #00ffe7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(78, 130, 255, 0.5);
+        }
+
+        .name {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.7);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(78, 130, 255, 0.7);
+            }
+
+            to {
+                text-shadow: 0 0 15px rgba(78, 130, 255, 0.9), 0 0 20px rgba(0, 255, 231, 0.7);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #10101c, #161628);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: appear 0.6s forwards;
+            text-decoration: none;
+            display: block;
+        }
+
+        @keyframes appear {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #4e82ff, #8a2be2, #00ffe7, #4e82ff);
+            z-index: -1;
+            border-radius: 16px;
+            animation: borderAnimation 3s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes borderAnimation {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 300% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(78, 130, 255, 0.2);
+        }
+
+        .card-number {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #00c9d4;
+            text-shadow: 0 0 5px rgba(0, 201, 212, 0.5);
+        }
+
+        .card-text {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(78, 130, 255, 0.2);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(10, 10, 18, 0.8);
+            margin-top: 3rem;
+            border-top: 1px solid rgba(78, 130, 255, 0.2);
+        }
+
+        /* Apply different animation delays to cards */
+        .card:nth-child(odd) {
+            animation-delay: calc(0.1s * var(--i));
+        }
+
+        .card:nth-child(even) {
+            animation-delay: calc(0.15s * var(--i));
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                padding: 0 1rem;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <!-- Dynamic background bubbles will be added via JavaScript -->
+    </div>
+
+    <header class="header">
+        <div class="title">Animated Card Collection</div>
+        <div class="name">H.Keerthi Lakshmi</div>
+    </header>
+
+    <div class="container" id="cardContainer">
+        <!-- Cards will be dynamically generated via JavaScript -->
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 | Created for H.Keerthi Lakshmi</p>
+    </footer>
+
+    <script>
+        // Create background bubbles
+        function createBubbles() {
+            const background = document.querySelector('.background');
+            const colors = ['rgba(78, 130, 255, 0.2)', 'rgba(138, 43, 226, 0.2)', 'rgba(0, 255, 231, 0.2)'];
+
+            for (let i = 0; i < 20; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+
+                // Random properties
+                const size = Math.random() * 200 + 50;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 20;
+                const duration = Math.random() * 20 + 10;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${left}%`;
+                bubble.style.bottom = '-100px';
+                bubble.style.animationDelay = `${delay}s`;
+                bubble.style.animationDuration = `${duration}s`;
+                bubble.style.background = color;
+
+                background.appendChild(bubble);
+            }
+        }
+
+        // Generate cards
+        function generateCards() {
+            const container = document.getElementById('cardContainer');
+            const cardTitles = [
+                'HTML Skeleton Check',
+                'CSS Matchmaking',
+                'Semantic HTML Party',
+                'Box Model Flex',
+                'List Game Strong',
+                'Table Tetris',
+                'Form Energy',
+                'Form Validation Vibes',
+                'Flexbox Navigation',
+                'Grid Gallery',
+                'Responsive Queen/King',
+                'Mobile-First Mindset',
+                'CSS Positioning Power',
+                'Transitions & Transforms',
+                'Animations Only',
+                'REM vs PX Showdown',
+                'Image Gallery Flex',
+                'Hero Section Hero',
+                'Bonus Challenge'
+            ];
+
+            const cardDescriptions = [
+                'Create a properly structured HTML document with all essential tags',
+                'Link HTML and CSS files and style a paragraph with red text',
+                'Use semantic elements like header, nav, main in your webpage',
+                'Create a div with padding, margin, border, and background color',
+                'Make a styled list of your top 5 Netflix shows or games',
+                'Build a class schedule table with colspan and rowspan',
+                'Design a sign-up form with various input fields',
+                'Add HTML5 validation to your form for email and password',
+                'Create a navigation bar with 5 items using flexbox',
+                'Build a photo gallery with 9 images using CSS Grid',
+                'Make a responsive webpage that adapts to different devices',
+                'Design a product card starting with mobile first approach',
+                'Showcase all CSS positioning types in a single page',
+                'Create a button with color change, grow, and rotate effects',
+                'Design a loading spinner animation that rotates continuously',
+                'Compare px vs rem measurements in responsive design',
+                'Create a responsive meme gallery with hover effects',
+                'Design an attractive hero section for a webpage',
+                'Tackle an additional creative challenge of your choice'
+            ];
+
+            for (let i = 0; i < 19; i++) {
+                const card = document.createElement('a');
+                card.classList.add('card');
+                card.style.setProperty('--i', i + 1);
+                card.href = `ques${i + 1}.html`;
+
+                const cardNumber = document.createElement('div');
+                cardNumber.classList.add('card-number');
+                cardNumber.textContent = (i + 1).toString().padStart(2, '0');
+
+                const cardContent = document.createElement('div');
+                cardContent.classList.add('card-content');
+
+                const cardIcon = document.createElement('div');
+                cardIcon.classList.add('card-icon');
+                cardIcon.innerHTML = `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#00c9d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`;
+
+                const cardTitle = document.createElement('h3');
+                cardTitle.classList.add('card-title');
+                cardTitle.textContent = cardTitles[i];
+
+                const cardText = document.createElement('p');
+                cardText.classList.add('card-text');
+                cardText.textContent = cardDescriptions[i];
+
+                cardContent.appendChild(cardIcon);
+                cardContent.appendChild(cardTitle);
+                cardContent.appendChild(cardText);
+
+                card.appendChild(cardNumber);
+                card.appendChild(cardContent);
+
+                container.appendChild(card);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createBubbles();
+            generateCards();
+        });
+    </script>
+</body>
+
+</html>

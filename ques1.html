@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Page Title</title>
+    <style>
+        /* Internal CSS */
+       body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #dc28b2, #2a41d2); /* fixed hex code */
+  color: white;
+  text-align: center;
+}
+
+        header {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main content goes here -->
+    <header>
+        <h1>Welcome to Your Page</h1>
+    </header>
+
+    <main>
+        <p>This is your main content area.</p>
+        <button onclick="showMessage()">Click Me</button>
+        <p id="message"></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Name</p>
+    </footer>
+
+    <script>
+        // Internal JavaScript
+        function showMessage() {
+            document.getElementById("message").innerText = "You clicked the button! 🎉";
+        }
+    </script>
+</body>
+
+</html>

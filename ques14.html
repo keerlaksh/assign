@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Transition Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .smooth-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+            transform: scale(1);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .smooth-button:hover {
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(142, 84, 233, 0.5);
+        }
+
+        .smooth-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .smooth-button:hover::before {
+            left: 100%;
+        }
+
+        .smooth-button:active {
+            transform: scale(0.95) rotate(-2deg);
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="smooth-button">
+        Hover Me Smoothly
+    </button>
+</body>
+
+</html>
